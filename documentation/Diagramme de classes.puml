@@ -1,0 +1,36 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+skinparam class {
+BackgroundColor Ivory
+ArrowColor SeaGreen
+BorderColor DarkOrange
+}
+skinparam stereotypeCBackgroundColor Gold
+
+class Filmographie {
+    -id : Integer
+    -libelle : String
+}
+class Film {
+    -id : Integer
+    -titre : String
+    -description : String
+    -duree : Integer
+    -dateSortie : Date
+}
+class Genre {
+    -id : Integer
+    -libelle : String
+}
+class Commentaire {
+    -id : Integer
+    -auteur : String
+    -note : Integer
+    -contenu : String
+}
+Film "0..*" --> "1..1" Genre
+Film "1..1" --> "0..*" Commentaire
+Filmographie --> "0..*" Film
+
+@enduml
